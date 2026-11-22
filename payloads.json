@@ -1,14 +1,14 @@
 {
-  "name": "Orbit Store",
+  "name": "Orbit Store Community Fork",
   "payloads": [
     {
-      "name": "Orbit Store (Beta)",
+      "name": "Orbit Store (Community Fork)",
       "filename": "orbit_store.elf",
-      "url": "https://github.com/saawant12/orbit-store-ps5/releases/download/v1.9.6/orbit_store.elf",
-      "description": "A modern PS5 download manager with a native TV app, resumable downloads and phone controls.",
-      "version": "v1.9.6",
+      "url": "https://github.com/lennyRBLX/orbit-store-ps5/releases/download/v1.9.6-community.1/orbit_store.elf",
+      "description": "Orbit Store for PS5 with Community Catalogue download options.",
+      "version": "v1.9.6-community.1",
       "category": "Utilities",
-      "checksum": "8a73e1265984589b7b8835f8b3c5c786c5edf753964dfc614687cdf57f0c7146",
+      "checksum": "3691abd844c293f65d101e57415a1762bec4ca2bf5aaca490a10357d9f94b78d",
       "receiveProtocol": 1
     }
   ]
