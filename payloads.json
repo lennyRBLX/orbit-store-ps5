@@ -4,11 +4,11 @@
     {
       "name": "Orbit Store (Community Fork)",
       "filename": "orbit_store.elf",
-      "url": "https://github.com/lennyRBLX/orbit-store-ps5/releases/download/v1.9.6-community.2/orbit_store.elf",
+      "url": "https://github.com/lennyRBLX/orbit-store-ps5/releases/download/v1.9.6-community.3/orbit_store.elf",
       "description": "Orbit Store for PS5 with Community Catalogue mirrors, TorBox, file sizes and direct URL downloads.",
-      "version": "v1.9.6-community.2",
+      "version": "v1.9.6-community.3",
       "category": "Utilities",
-      "checksum": "275393e8d3ba131613cf71298edf859203fdeafafbf7dfc45a40e9d1fb6fa3d6",
+      "checksum": "52198066da43071329e6ece907ad03a09bb87db12a723a002182849eecfe9e0e",
       "receiveProtocol": 1
     }
   ]
