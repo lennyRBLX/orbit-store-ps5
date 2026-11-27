@@ -22,7 +22,7 @@ The Games-row app needs **kstuff and ShadowMountPlus**. Check that `PPSA99177.ff
 
 If the app says Orbit is not running, start your ELF loader on **port 9021** and choose **Try again**, or launch `orbit_store.elf` through your payload manager. The app never stops another running payload to make room.
 
-For missing artwork or crashes when opening a game page, use the [latest matching release](https://github.com/saawant12/orbit-store-ps5/releases/latest). Orbit 1.9.6 includes **native app 1.13.6** and service **1.9.6**, with the artwork memory fixes introduced in 1.8.0. Check both running versions in **Diagnostics & about**. Stop any older running service before reopening the app; if you start the service separately through Payload Manager, update that copy too. Orbit Zero 1.8.3 also fixes cached covers disappearing after changing Browse filters. Unavailable image hosts can still leave artwork missing. If a crash continues, include an existing diagnostic or crash log when reporting it.
+For missing artwork or crashes when opening a game page, use the [latest matching release](https://github.com/saawant12/orbit-store-ps5/releases/latest). Orbit 1.9.7 includes **native app 1.13.7** and service **1.9.7**, with the artwork memory fixes introduced in 1.8.0. Check both running versions in **Diagnostics & about**. Stop any older running service before reopening the app; if you start the service separately through Payload Manager, update that copy too. Orbit Zero 1.8.3 also fixes cached covers disappearing after changing Browse filters. Unavailable image hosts can still leave artwork missing. If a crash continues, include an existing diagnostic or crash log when reporting it.
 
 If ShadowMount reports **TitleDir bridge unavailable**, its app-registration bridge is not ready. Close active games, restart the console when convenient, run your usual jailbreak and ShadowMount setup, then retry registration of the existing FFPKG. If it persists, include ShadowMount's version and the relevant registration errors from its debug log in your report.
 
@@ -34,7 +34,7 @@ Check **App settings → Downloads → Automatic PS5 shutdown**, or **Settings �
 
 ### The selected drive is too small
 
-Review free space and queued work in the download sheet. Archives may need room for the archive and extracted files together, and installation needs additional console storage. From **1.9.5**, a ZIP, 7z or RAR download only needs room for the archive to start; if there isn’t room to extract when it finishes, it pauses and keeps the archive. Free up space and select **Resume**. If Zero still has the computer files, use **Change drive** on that download to send them to another PS5 drive without downloading again. A completed copy on the old drive stays there. Direct PS5 downloads do not have this drive-change action. See [change the PS5 drive](orbit-zero.md#change-the-ps5-drive).
+Review free space and queued work in the download sheet. From **1.9.7**, select **Free up space** to let Orbit delete its own leftovers or games you choose, then start the download; see [Free up space](downloads.md#free-up-space). Archives may need room for the archive and extracted files together, and installation needs additional console storage. From **1.9.5**, a ZIP, 7z or RAR download only needs room for the archive to start; if there isn’t room to extract when it finishes, it pauses and keeps the archive. Free up space and select **Resume**. If Zero still has the computer files, use **Change drive** on that download to send them to another PS5 drive without downloading again. A completed copy on the old drive stays there. Direct PS5 downloads do not have this drive-change action. See [change the PS5 drive](orbit-zero.md#change-the-ps5-drive).
 
 ### An update says Orbit is already running
 
@@ -80,7 +80,7 @@ If it persists, check internet access on the device handling the refresh and exp
 - **Provider returned a page:** update Orbit, restart it and retry from Downloads. For browser-only Vikingfile options, repeat the provider step. Orbit still rejects an actual error or verification page returned instead of file data.
 - **Provider throttling:** let the retry delay finish. Orbit honours the provider’s Retry-After response.
 - **Drive disconnected:** reconnect the original destination. In 1.7.5, Orbit can recognise the same drive after a remount using its saved marker or the job’s own partial file. Keep those files and select **Resume**. If it still asks for the original drive, export diagnostics before changing the queue. Orbit does not silently switch to a different drive.
-- **Not enough space:** free space on the chosen destination, considering unfinished downloads, then retry.
+- **Not enough space:** select **Free up space** to delete Orbit’s leftovers or games you choose, or free space on the chosen destination yourself, considering unfinished downloads, then retry.
 - **Source changed:** keep the partial until you decide whether to remove it and restart. Orbit will not append a different file to it.
 - **Partial file deleted or empty:** choose **Retry**. In 1.5.0 and later, Orbit starts that download again from the beginning on the same drive.
 
@@ -118,7 +118,7 @@ Update to the [latest matching Orbit apps](https://github.com/saawant12/orbit-st
 
 An available drive appears even if its `homebrew` folder has not been created yet. Orbit creates the folder when needed and checks actual write access when a download starts or resumes. If the destination cannot be written, the download stops and existing partial data is kept.
 
-If the drive still does not appear, include your firmware, Orbit and ShadowMount or Kraken Mount versions and a fresh diagnostic report in your bug report.
+If the drive still does not appear, include your firmware, Orbit and ShadowMountPlus versions and a fresh diagnostic report in your bug report.
 
 ## Orbit Zero transfers
 
@@ -150,11 +150,11 @@ For downloads handled by Orbit Store, check **Downloads → Finished → Locatio
 
 Orbit Zero download details also show the full PS5 destination path and the computer path while a cached copy remains. Check the selected PS5 drive's [homebrew folder](downloads.md#where-downloads-are-saved). For **Send to PS5**, wait for **Transfer to PS5** to complete too. If you used **Stream & install**, check the installation result instead; it does not leave a full package in the PS5 download folder.
 
-If the file exists but does not appear in Library or on the home screen, check its format and the installation or mounting method supported by your console setup. A finished download is not automatically installed, and ShadowMount may not list every format. With Kraken Mount running, the download’s entry in Downloads shows whether Kraken Mount has added the game; see [below](#kraken-mount-hasnt-added-a-game). PKG and FPKG packages need installing first; see [below](#a-downloaded-pkg-or-fpkg-game-doesnt-appear). If the file is absent, include the app, game, source, format, destination and completion screen in your report; do not delete the queue or remaining files while investigating.
+If the file exists but does not appear in Library or on the home screen, check its format and the installation or mounting method supported by your console setup. A finished download is not automatically installed, and ShadowMount may not list every format. PKG and FPKG packages need installing first; see [below](#a-downloaded-pkg-or-fpkg-game-doesnt-appear). If the file is absent, include the app, game, source, format, destination and completion screen in your report; do not delete the queue or remaining files while investigating.
 
 ### ShadowMount does not find a game inside nested folders
 
-Update the running PS5 service to **1.9.6**, and update the native app or Zero you use with it. A path such as `/data/homebrew/Game/Game-app` should be registered using its inner game root. Start a compatible ShadowMount version, open the completed download’s details and choose **Scan with ShadowMount**. This retries registration using the existing files; it does not redownload or flatten the folder.
+Update the running PS5 service to **1.9.7**, and update the native app or Zero you use with it. A path such as `/data/homebrew/Game/Game-app` should be registered using its inner game root. Start a compatible ShadowMount version, open the completed download’s details and choose **Scan with ShadowMount**. This retries registration using the existing files; it does not redownload or flatten the folder.
 
 If the download is no longer in history, locate the actual game folder in **Library → Files**, open its actions and choose **Install on PS5** when offered. If registration still fails, keep the files and attach the exact saved path, ShadowMount version and Orbit diagnostic report. See [game-folder checks](files.md#check-and-repair-a-game-folder) for separate permission or filename warnings.
 
@@ -164,22 +164,11 @@ PKG and FPKG options are `.pkg` packages, for PS4 or PS5 games. Orbit saves them
 
 Check installation status separately from download completion. If **Check installation** appears after a restart or lost response, use it and check the PS5 home screen before trying again. Orbit retains the downloaded file if installation fails. See [installation help](install-games.md#if-installation-needs-attention).
 
-Installation through Orbit does not change compatibility. To run PS5 PKG and FPKG games without installing them, use [Kraken Mount](install-games.md#kraken-mount). Copying a game package to the same folder as Orbit's native app does not register it the way the TV app is registered.
+Installation through Orbit does not change compatibility. Copying a game package to the same folder as Orbit's native app does not register it the way the TV app is registered.
 
 If the game also offers exFAT or FFPFSC, those are mounted by ShadowMountPlus without installing. See [which format to pick](downloads.md#which-format-to-pick).
 
 If you report a problem, include the title ID (`CUSA` for PS4, `PPSA` for PS5), source, format, destination, app versions, any error code from the installer, and whether it fails during the computer download, PS5 transfer or package installation. Do not share temporary signed links. See [PS4 games on PS5](downloads.md#ps4-games-on-ps5).
-
-### Kraken Mount hasn’t added a game
-
-From **1.9.5**, with Kraken Mount running, Downloads shows its progress for each finished PS5 PKG/FPKG game or game folder in one of its folders.
-
-- **Waiting for Kraken Mount to add the game…** or **Kraken Mount is preparing the game…**: wait; Kraken Mount is still checking or preparing it.
-- **Kraken Mount stopped before it added this game:** start Kraken Mount again and it adds the game by itself.
-- **Kraken Mount couldn’t add this game:** check Kraken Mount’s page for details.
-- **Kraken Mount hasn’t added this game yet:** check Kraken Mount’s page, or restart Kraken Mount.
-
-Kraken Mount only finds games directly inside `homebrew` or `etaHEN/games`, or at the top of an M.2 or USB drive, and a game folder needs its `sce_sys/param.json`. If ShadowMount+ was running when Kraken Mount started, Kraken Mount waits and Orbit uses ShadowMount instead. See [Kraken Mount](install-games.md#kraken-mount).
 
 ### Add-ons are missing or do not work
 
